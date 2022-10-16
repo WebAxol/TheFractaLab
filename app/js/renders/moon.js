@@ -42,9 +42,6 @@ var wingAngle = 0;
 function animationLoop(){
     requestAnimationFrame(animationLoop);
 
-
-
-
     if(rotationVelocity > 2 || rotationVelocity < -2){
         rotationAcceleration *= -1;
     }
@@ -52,7 +49,6 @@ function animationLoop(){
     if(wingAngle < 50){
         wingAngle++;
     }
-
 
     c.clearRect(0,0,canvas.width,canvas.height);
 
@@ -65,29 +61,12 @@ function animationLoop(){
 
     }
 
-
     for(let i = 0; i < 10; i++){
 
         let angle = (360 / 30) * i;
 
         Stem({ x : (canvas.width / 2) - 400, y : (canvas.height / 2) - 200 }, 60, angle + _angle);
-        //Stem({ x : (canvas.width / 2) - 200, y : (canvas.height / 2) - 200 }, 60, angle + _angle);
-
-
     }
-
-
-/*
-    for(let i = 0; i < 5; i++){
-
-        let angle = (360 / 15) * i;
-
-        Stem({ x : canvas.width / 2, y : canvas.height / 2}, 70, angle + 240 - _angle);
-    }
-
-    _angle += rotationVelocity;
-    rotationVelocity += rotationAcceleration;
-    */
 }
 
 animationLoop();

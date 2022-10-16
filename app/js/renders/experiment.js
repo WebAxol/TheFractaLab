@@ -5,15 +5,7 @@ function Stem(origin, size, angle,level = 1){
 
     var strokes = ['#ff0066','#ff0066','#ff0066','white'], actualStroke;
 
-    if(strokes[level - 1]){
-        actualStroke = strokes[level - 1];
-    }
-    else{
-        actualStroke = strokes[strokes.length - 1];
-    }
-
-
-    //actualStroke = 'white';
+    actualStroke = strokes[level - 1] ? strokes[level - 1] : strokes[strokes.length - 1];
 
     renderLine({
         from : { x : origin.x, y: origin.y},
@@ -38,9 +30,6 @@ var wingAngle = 0;
 
 function animationLoop(){
     requestAnimationFrame(animationLoop);
-
-
-
 
     if(rotationVelocity > 2 || rotationVelocity < -2){
         //rotationAcceleration *= -1;
